@@ -2,7 +2,6 @@
 
 namespace PhpValueObjects\Identity;
 
-use Assert\Assertion;
 use PhpValueObjects\AbstractStringValueObject;
 use PhpValueObjects\Identity\Exception\InvalidEmailException;
 
@@ -15,9 +14,7 @@ abstract class Email extends AbstractStringValueObject
      */
     protected function guard($value)
     {
-        try {
-            Assertion::email($value);
-        } catch (\Exception $e) {
+        if (false === filter_var($value, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidEmailException($value);
         }
     }
