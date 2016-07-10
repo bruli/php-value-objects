@@ -8,7 +8,7 @@ use PhpValueObjects\Network\Exception\InvalidIpv6Exception;
 abstract class Ipv6 extends AbstractStringValueObject
 {
     /**
-     * @param mixed $value
+     * @param string $value
      *
      * @throws InvalidIpv6Exception
      */

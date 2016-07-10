@@ -8,7 +8,7 @@ use PhpValueObjects\Network\Exception\InvalidIpv4Exception;
 abstract class Ipv4 extends AbstractStringValueObject
 {
     /**
-     * @param mixed $value
+     * @param string $value
      *
      * @throws InvalidIpv4Exception
      */
