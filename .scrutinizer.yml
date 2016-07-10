@@ -9,3 +9,4 @@ build:
         coverage:
           file: 'coverage_clover'
           format: 'clover'
+          
