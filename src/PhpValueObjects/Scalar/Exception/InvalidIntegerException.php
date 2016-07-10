@@ -2,7 +2,7 @@
 
 namespace PhpValueObjects\Scalar\Exception;
 
-class InvalidIntegerException  extends \Exception
+class InvalidIntegerException extends \Exception
 {
     /**
      * InvalidIntegerException constructor.
