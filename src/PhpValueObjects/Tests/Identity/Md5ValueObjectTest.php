@@ -12,7 +12,7 @@ class Md5ValueObjectTest extends BaseUnitTestCase
      */
     public function itShouldReturnMd5Hash()
     {
-        $md5Hash = $this->faker()->Md5;
+        $md5Hash = $this->faker()->md5;
 
         $md5VO = new Md5ValueObject($md5Hash);
 

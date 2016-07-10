@@ -11,6 +11,6 @@ class InvalidMd5Exception extends \Exception
      */
     public function __construct($value)
     {
-        parent::__construct(sprintf('"%s" is not a valid Md5 hash.', $value));
+        parent::__construct(sprintf('"%s" is not a valid md5 hash.', $value));
     }
 }
