@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "109e8374172daba1c328c1cb96df1b4f",
-    "content-hash": "50e0db0e91453b05eb639bf39669bd07",
+    "hash": "61f38a9ac16b61d2db91b3fdc2bb5e26",
+    "content-hash": "c57e21a8934c7a319f9e56543d4305d9",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -62,16 +62,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v3.1.2",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "2c5e101f3fcaeae81b68b439db684a8269b16617"
+                "reference": "8f3e7d2772173db99617a439f2104b092c51b3a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/2c5e101f3fcaeae81b68b439db684a8269b16617",
-                "reference": "2c5e101f3fcaeae81b68b439db684a8269b16617",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/8f3e7d2772173db99617a439f2104b092c51b3a1",
+                "reference": "8f3e7d2772173db99617a439f2104b092c51b3a1",
                 "shasum": ""
             },
             "require": {
@@ -133,7 +133,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2016-06-29 05:41:56"
+            "time": "2016-07-26 08:04:17"
         },
         {
             "name": "symfony/polyfill-intl-icu",
