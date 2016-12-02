@@ -40,7 +40,7 @@ abstract class AbstractValueObject
      *
      * @return bool
      */
-    private function guardNullable($value)
+    protected function guardNullable($value)
     {
         return is_null($value) && $this instanceof NullableInterface;
     }
