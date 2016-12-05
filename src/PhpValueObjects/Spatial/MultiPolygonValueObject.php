@@ -30,6 +30,21 @@ class MultiPolygonValueObject extends AbstractValueObject
             $values[] = new PolygonValueObject($item);
         }
 
-        $this->value = $values;
+        $this->value = $this->getScalarValues($values);
+    }
+
+    /**
+     * @param PolygonValueObject[] $values
+     * @return array
+     */
+    private function getScalarValues(array $values)
+    {
+        $scalar = [];
+
+        foreach ($values as $value) {
+            $scalar[] = $value->value();
+        }
+
+        return $scalar;
     }
 }
