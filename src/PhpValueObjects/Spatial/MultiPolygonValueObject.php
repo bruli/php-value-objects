@@ -24,10 +24,6 @@ class MultiPolygonValueObject extends AbstractValueObject
             throw new InvalidMultiPolygonException();
         }
 
-        if (1 === count($value)) {
-            throw new InvalidMultiPolygonException();
-        }
-
         $values = [];
 
         foreach ($value as $item) {

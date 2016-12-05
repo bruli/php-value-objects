@@ -10,12 +10,7 @@ class MultiPolygonValueObjectTest extends BaseUnitTestCase
     public function invalidDataProvider()
     {
         return [
-            'no_array' => ['string'],
-            'no_multiple' => [
-                [
-                    [$this->faker()->latitude, $this->faker()->longitude]
-                ]
-            ]
+            'no_array' => ['string']
         ];
     }
 
