@@ -14,7 +14,7 @@ abstract class TcpPort extends AbstractValueObject
      */
     protected function guard($value)
     {
-        if (false === filter_var($value, FILTER_VALIDATE_INT)) {
+        if (!is_int($value)) {
             throw new InvalidTcpPortException($value);
         }
 

@@ -2,7 +2,6 @@
 
 namespace PhpValueObjects\Tests\Network;
 
-use PhpValueObjects\Network\Exception\InvalidIpv6Exception;
 use PhpValueObjects\Network\Exception\InvalidTcpPortException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
@@ -27,6 +26,7 @@ class TcpPortValueObjectTest extends BaseUnitTestCase
     {
         return [
             [null],
+            [11362.0],
             [$this->faker()->randomFloat()],
             [$this->faker()->numberBetween(65536)],
             [-$this->faker()->numberBetween()],
