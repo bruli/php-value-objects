@@ -4,8 +4,9 @@ namespace PhpValueObjects\Tests\Collection;
 
 
 use PhpValueObjects\Collection\Exception\InvalidCollectionObjectException;
+use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class CollectionTest extends \PHPUnit_Framework_TestCase
+class CollectionTest extends BaseUnitTestCase
 {
     /**
      * @test

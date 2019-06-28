@@ -4,8 +4,9 @@ namespace PhpValueObjects\Tests;
 
 use Faker\Factory;
 use Faker\Generator;
+use PHPUnit\Framework\TestCase;
 
-abstract class BaseUnitTestCase extends \PHPUnit_Framework_TestCase
+abstract class BaseUnitTestCase extends TestCase
 {
     /**
      * @var Generator
