@@ -54,7 +54,7 @@ abstract class ObjectCollection
 
     public function remove($key)
     {
-        if (! isset($this->objects[$key]) && ! array_key_exists($key, $this->objects)) {
+        if (!isset($this->objects[$key]) && !array_key_exists($key, $this->objects)) {
             return null;
         }
 
