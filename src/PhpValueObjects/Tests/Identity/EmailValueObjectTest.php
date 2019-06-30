@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace PhpValueObjects\Tests\Identity;
 
@@ -7,12 +8,12 @@ namespace PhpValueObjects\Tests\Identity;
 use PhpValueObjects\Identity\Exception\InvalidEmailException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class EmailValueObjectTest extends BaseUnitTestCase
+final class EmailValueObjectTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldReturnEmail()
+    public function itShouldReturnEmail(): void
     {
         $email = $this->faker()->email;
 
@@ -22,13 +23,9 @@ class EmailValueObjectTest extends BaseUnitTestCase
         $this->assertSame($email, $emailVO->__toString());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidEmailProvider()
+    public function invalidEmailProvider(): array
     {
         return [
-            [null],
             [$this->faker()->numberBetween()],
             [$this->faker()->address],
         ];
@@ -39,7 +36,7 @@ class EmailValueObjectTest extends BaseUnitTestCase
      *
      * @dataProvider invalidEmailProvider
      */
-    public function itShouldThrowsException($data)
+    public function itShouldThrowsException(?string $data): void
     {
         $this->expectException(InvalidEmailException::class);
 

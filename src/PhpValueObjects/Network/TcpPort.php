@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Network;
 
 use PhpValueObjects\AbstractValueObject;
@@ -7,12 +9,7 @@ use PhpValueObjects\Network\Exception\InvalidTcpPortException;
 
 abstract class TcpPort extends AbstractValueObject
 {
-    /**
-     * @param string $value
-     *
-     * @throws InvalidTcpPortException
-     */
-    protected function guard($value)
+    protected function guard($value): void
     {
         if (!is_int($value)) {
             throw new InvalidTcpPortException($value);

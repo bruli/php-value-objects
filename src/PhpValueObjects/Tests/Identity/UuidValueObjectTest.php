@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Identity;
 
 use PhpValueObjects\Identity\Exception\InvalidUuidException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class UuidValueObjectTest extends BaseUnitTestCase
+final class UuidValueObjectTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldReturnUuid()
+    public function itShouldReturnUuid(): void
     {
         $uuid = $this->faker()->uuid;
 
@@ -20,10 +22,9 @@ class UuidValueObjectTest extends BaseUnitTestCase
         $this->assertSame($uuid, $uuidVO->__toString());
     }
 
-    public function invalidUuidProvider()
+    public function invalidUuidProvider(): array
     {
         return [
-            [null],
             [$this->faker()->numberBetween()],
             [$this->faker()->address],
         ];
@@ -34,7 +35,7 @@ class UuidValueObjectTest extends BaseUnitTestCase
      *
      * @dataProvider invalidUuidProvider
      */
-    public function itShouldThrowsException($data)
+    public function itShouldThrowsException($data): void
     {
         $this->expectException(InvalidUuidException::class);
 

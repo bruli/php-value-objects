@@ -1,24 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Money;
 
 use PhpValueObjects\AbstractStringValueObject;
 use PhpValueObjects\Money\Exception\InvalidCurrencyException;
-use Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl\Currencies;
+use Symfony\Component\Intl\Exception\MissingResourceException;
 
 abstract class Currency extends AbstractStringValueObject
 {
-    /**
-     * @param string $value
-     *
-     * @throws InvalidCurrencyException
-     */
-    protected function guard($value)
+    protected function guard($value): void
     {
-        $currency = Intl::getCurrencyBundle()->getCurrencyName($value);
-
-        if (null === $currency) {
+        try {
+            Currencies::getName($value);
+        } catch (MissingResourceException $exception) {
             throw new InvalidCurrencyException($value);
         }
+
     }
 }

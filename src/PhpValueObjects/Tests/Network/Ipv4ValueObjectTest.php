@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Network;
 
 use PhpValueObjects\Network\Exception\InvalidIpv4Exception;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class Ipv4ValueObjectTest extends BaseUnitTestCase
+final class Ipv4ValueObjectTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldReturnIpv4Address()
+    public function itShouldReturnIpv4Address(): void
     {
 
         $ipAddress = $this->faker()->ipv4;
@@ -21,13 +23,9 @@ class Ipv4ValueObjectTest extends BaseUnitTestCase
         $this->assertSame($ipAddress, $ipv4->__toString());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidIpv4AddressProvider()
+    public function invalidIpv4AddressProvider(): array
     {
         return [
-            [null],
             [$this->faker()->numberBetween()],
             [$this->faker()->ipv6]
         ];
@@ -37,7 +35,7 @@ class Ipv4ValueObjectTest extends BaseUnitTestCase
      * @test
      * @dataProvider invalidIpv4AddressProvider
      */
-    public function itShouldThrowsException($data)
+    public function itShouldThrowsException($data): void
     {
         $this->expectException(InvalidIpv4Exception::class);
 

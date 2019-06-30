@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 
 namespace PhpValueObjects\Tests\Geography;
 
@@ -7,12 +9,9 @@ namespace PhpValueObjects\Tests\Geography;
 use PhpValueObjects\Geography\Exception\InvalidCountryCodeException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class CountryCodeValueObjectTest extends BaseUnitTestCase
+final class CountryCodeValueObjectTest extends BaseUnitTestCase
 {
-    /**
-     * @return array
-     */
-    public function countryCodeProvider()
+    public function countryCodeProvider(): array
     {
         return [
             ['GB'],
@@ -21,11 +20,12 @@ class CountryCodeValueObjectTest extends BaseUnitTestCase
             ['FR'],
         ];
     }
+
     /**
      * @test
      * @dataProvider countryCodeProvider
      */
-    public function itShouldReturnCountryCode($country)
+    public function itShouldReturnCountryCode(string $country): void
     {
         $countryVO = new CountryCodeValueObject($country);
 
@@ -33,13 +33,9 @@ class CountryCodeValueObjectTest extends BaseUnitTestCase
         $this->assertSame($country, $countryVO->__toString());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidCountryCodeProvider()
+    public function invalidCountryCodeProvider(): array
     {
         return [
-            [null],
             [$this->faker()->address],
             [$this->faker()->numberBetween()]
         ];
@@ -49,7 +45,7 @@ class CountryCodeValueObjectTest extends BaseUnitTestCase
      * @test
      * @dataProvider invalidCountryCodeProvider
      */
-    public function itShouldThrowsException($data)
+    public function itShouldThrowsException(string $data): void
     {
         $this->expectException(InvalidCountryCodeException::class);
 

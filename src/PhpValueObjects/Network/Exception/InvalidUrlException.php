@@ -1,15 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Network\Exception;
 
-class InvalidUrlException extends \Exception
+use Exception;
+
+final class InvalidUrlException extends Exception
 {
-    /**
-     * InvalidUrlException constructor.
-     *
-     * @param string $value
-     */
-    public function __construct($value)
+    public function __construct(string $value)
     {
         parent::__construct(sprintf('"%" is not a valid url.', $value));
     }

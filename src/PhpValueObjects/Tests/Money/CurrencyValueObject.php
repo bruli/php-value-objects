@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Money;
 
 use PhpValueObjects\Money\Currency;
 
-class CurrencyValueObject extends Currency
+final class CurrencyValueObject extends Currency
 {
 }

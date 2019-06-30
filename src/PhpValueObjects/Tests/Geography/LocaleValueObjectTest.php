@@ -1,16 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Geography;
 
 use PhpValueObjects\Geography\Exception\InvalidLocaleException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class LocaleValueObjectTest extends BaseUnitTestCase
+final class LocaleValueObjectTest extends BaseUnitTestCase
 {
-    /**
-     * @return array
-     */
-    public function localeProvider()
+    public function localeProvider(): array
     {
         return [
             ['es_ES'],
@@ -24,7 +23,7 @@ class LocaleValueObjectTest extends BaseUnitTestCase
      * @test
      * @dataProvider localeProvider
      */
-    public function itShouldReturnLocale($locale)
+    public function itShouldReturnLocale(string $locale): void
     {
         $localeVO = new LocaleValueObject($locale);
 
@@ -32,13 +31,9 @@ class LocaleValueObjectTest extends BaseUnitTestCase
         $this->assertSame($locale, $localeVO->__toString());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidLocaleProvider()
+    public function invalidLocaleProvider(): array
     {
         return [
-            [null],
             [$this->faker()->address],
             [$this->faker()->numberBetween()],
         ];
@@ -48,7 +43,7 @@ class LocaleValueObjectTest extends BaseUnitTestCase
      * @test
      * @dataProvider invalidLocaleProvider
      */
-    public function itShouldThrowsException($locale)
+    public function itShouldThrowsException(string $locale): void
     {
         $this->expectException(InvalidLocaleException::class);
 

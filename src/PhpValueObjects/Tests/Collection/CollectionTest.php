@@ -1,27 +1,29 @@
 <?php
+declare(strict_types=1);
 
 namespace PhpValueObjects\Tests\Collection;
 
 
 use PhpValueObjects\Collection\Exception\InvalidCollectionObjectException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
+use stdClass;
 
-class CollectionTest extends BaseUnitTestCase
+final class CollectionTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldThrowInvalidCollectionObjectException()
+    public function itShouldThrowInvalidCollectionObjectException(): void
     {
         $this->expectException(InvalidCollectionObjectException::class);
 
-        new Collection([new \stdClass(), new \stdClass()]);
+        new Collection([new stdClass(), new stdClass()]);
     }
 
     /**
      * @test
      */
-    public function itShouldReturnCollection()
+    public function itShouldReturnCollection(): void
     {
         $objects = [
             new ObjectForTest(),
@@ -37,7 +39,7 @@ class CollectionTest extends BaseUnitTestCase
     /**
      * @test
      */
-    public function itShouldReturnEmptyCollection()
+    public function itShouldReturnEmptyCollection(): void
     {
         $collection = new Collection([]);
 

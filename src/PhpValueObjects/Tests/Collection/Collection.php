@@ -1,15 +1,13 @@
 <?php
+declare(strict_types=1);
 
 namespace PhpValueObjects\Tests\Collection;
 
 use PhpValueObjects\Collection\ObjectCollection;
 
-class Collection extends ObjectCollection
+final class Collection extends ObjectCollection
 {
-    /**
-     * @return string
-     */
-    protected function setClassName()
+    protected function setClassName(): string
     {
         return ObjectForTest::class;
     }

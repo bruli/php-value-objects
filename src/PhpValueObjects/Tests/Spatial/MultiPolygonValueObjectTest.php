@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Spatial;
 
 use PhpValueObjects\Spatial\Exception\InvalidMultiPolygonException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class MultiPolygonValueObjectTest extends BaseUnitTestCase
+final class MultiPolygonValueObjectTest extends BaseUnitTestCase
 {
-    public function invalidDataProvider()
+    public function invalidDataProvider(): array
     {
         return [
             'no_array' => ['string']
@@ -15,11 +17,10 @@ class MultiPolygonValueObjectTest extends BaseUnitTestCase
     }
 
     /**
-     * @param $data
      * @test
      * @dataProvider invalidDataProvider
      */
-    public function itShouldThrowInvalidMultipolygonException($data)
+    public function itShouldThrowInvalidMultipolygonException(string $data): void
     {
         $this->expectException(InvalidMultiPolygonException::class);
 
@@ -29,7 +30,7 @@ class MultiPolygonValueObjectTest extends BaseUnitTestCase
     /**
      * @test
      */
-    public function itShouldWorksFine()
+    public function itShouldWorksFine(): void
     {
         $latitude1 = $this->faker()->latitude;
         $latitude2 = $this->faker()->latitude;
@@ -52,5 +53,6 @@ class MultiPolygonValueObjectTest extends BaseUnitTestCase
         ];
 
         $multiPolygon = new MultiPolygonValueObject($data);
+        $this->assertNotNull($multiPolygon->value());
     }
 }

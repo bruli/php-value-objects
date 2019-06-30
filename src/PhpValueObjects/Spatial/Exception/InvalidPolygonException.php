@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Spatial\Exception;
 
-class InvalidPolygonException extends \Exception
+use Exception;
+
+final class InvalidPolygonException extends Exception
 {
     protected $message = 'Invalid polygon data.';
 }

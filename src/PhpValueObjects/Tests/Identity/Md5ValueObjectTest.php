@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Identity;
 
 use PhpValueObjects\Identity\Exception\InvalidMd5Exception;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class Md5ValueObjectTest extends BaseUnitTestCase
+final class Md5ValueObjectTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldReturnMd5Hash()
+    public function itShouldReturnMd5Hash(): void
     {
         $md5Hash = $this->faker()->md5;
 
@@ -20,10 +22,7 @@ class Md5ValueObjectTest extends BaseUnitTestCase
         $this->assertSame($md5Hash, $md5VO->__toString());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidMd5HashProvider()
+    public function invalidMd5HashProvider(): array
     {
         return [
             [$this->faker()->sha1],
@@ -37,7 +36,7 @@ class Md5ValueObjectTest extends BaseUnitTestCase
      *
      * @dataProvider invalidMd5HashProvider
      */
-    public function itShouldThrowsException($data)
+    public function itShouldThrowsException(string $data): void
     {
         $this->expectException(InvalidMd5Exception::class);
 

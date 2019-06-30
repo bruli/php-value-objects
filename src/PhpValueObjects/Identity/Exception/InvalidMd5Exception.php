@@ -1,15 +1,13 @@
 <?php
+declare(strict_types=1);
 
 namespace PhpValueObjects\Identity\Exception;
 
-class InvalidMd5Exception extends \Exception
+use Exception;
+
+final class InvalidMd5Exception extends Exception
 {
-    /**
-     * InvalidMd5Exception constructor.
-     *
-     * @param string $value
-     */
-    public function __construct($value)
+    public function __construct(string $value)
     {
         parent::__construct(sprintf('"%s" is not a valid md5 hash.', $value));
     }

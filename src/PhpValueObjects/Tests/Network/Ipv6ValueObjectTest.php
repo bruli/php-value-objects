@@ -1,16 +1,17 @@
 <?php
+declare(strict_types=1);
 
 namespace PhpValueObjects\Tests\Network;
 
 use PhpValueObjects\Network\Exception\InvalidIpv6Exception;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class Ipv6ValueObjectTest extends BaseUnitTestCase
+final class Ipv6ValueObjectTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldReturnIpv6Address()
+    public function itShouldReturnIpv6Address(): void
     {
         $ipAddress = $this->faker()->ipv6;
 
@@ -20,13 +21,9 @@ class Ipv6ValueObjectTest extends BaseUnitTestCase
         $this->assertSame($ipAddress, $ipv6->__toString());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidIpv6Provider()
+    public function invalidIpv6Provider(): array
     {
         return [
-            [null],
             [$this->faker()->ipv4],
             [$this->faker()->localIpv4],
             [$this->faker()->numberBetween()],
@@ -37,7 +34,7 @@ class Ipv6ValueObjectTest extends BaseUnitTestCase
      * @test
      * @dataProvider invalidIpv6Provider
      */
-    public function itShouldThrowsException($data)
+    public function itShouldThrowsException($data): void
     {
         $this->expectException(InvalidIpv6Exception::class);
 

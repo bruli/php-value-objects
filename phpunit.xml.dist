@@ -16,11 +16,6 @@
             <directory>./src/PhpValueObjects/Tests/</directory>
         </testsuite>
     </testsuites>
-
-    <listeners>
-        <!--<listener class="\MyBuilder\PhpunitAccelerator\TestListener"/>-->
-    </listeners>
-
     <filter>
         <whitelist>
             <directory>./src/PhpValueObjects/*/</directory>

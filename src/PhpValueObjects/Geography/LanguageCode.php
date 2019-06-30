@@ -1,23 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Geography;
 
 use PhpValueObjects\AbstractStringValueObject;
 use PhpValueObjects\Geography\Exception\InvalidLanguageCodeException;
+use Symfony\Component\Intl\Exception\MissingResourceException;
 use Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl\Languages;
 
 abstract class LanguageCode extends AbstractStringValueObject
 {
-    /**
-     * @param mixed $value
-     *
-     * @throws InvalidLanguageCodeException
-     */
-    protected function guard($value)
+    public function __construct(string $value)
     {
-        $languageName = Intl::getLanguageBundle()->getLanguageName($value);
+        parent::__construct($value);
+    }
 
-        if (null === $languageName) {
+    protected function guard($value): void
+    {
+        try {
+            Languages::getName($value);
+        } catch (MissingResourceException $exception) {
             throw new InvalidLanguageCodeException($value);
         }
     }

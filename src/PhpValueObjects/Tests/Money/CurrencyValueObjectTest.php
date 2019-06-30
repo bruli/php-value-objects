@@ -1,16 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Money;
 
 use PhpValueObjects\Money\Exception\InvalidCurrencyException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class CurrencyValueObjectTest extends BaseUnitTestCase
+final class CurrencyValueObjectTest extends BaseUnitTestCase
 {
-    /**
-     * @return array
-     */
-    public function currencyCodeProvider()
+    public function currencyCodeProvider(): array
     {
         return [
             ['EUR'],
@@ -23,7 +22,7 @@ class CurrencyValueObjectTest extends BaseUnitTestCase
      * @test
      * @dataProvider currencyCodeProvider
      */
-    public function itShouldReturnCurrency($currencyCode)
+    public function itShouldReturnCurrency(string $currencyCode): void
     {
         $currency = new CurrencyValueObject($currencyCode);
 
@@ -34,7 +33,7 @@ class CurrencyValueObjectTest extends BaseUnitTestCase
     /**
      * @test
      */
-    public function itShouldThrowsException()
+    public function itShouldThrowsException(): void
     {
         $this->expectException(InvalidCurrencyException::class);
 

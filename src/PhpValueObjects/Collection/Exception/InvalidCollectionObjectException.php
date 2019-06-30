@@ -1,15 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Collection\Exception;
 
-class InvalidCollectionObjectException extends \Exception
+use Exception;
+
+final class InvalidCollectionObjectException extends Exception
 {
-    /**
-     * InvalidCollectionObjectException constructor.
-     * @param object $actual
-     * @param string $expected
-     */
-    public function __construct($actual, $expected)
+    public function __construct($actual, string $expected)
     {
         parent::__construct(
             sprintf('"%s" is not a valid object for collection. Expected "%s"', get_class($actual), $expected)

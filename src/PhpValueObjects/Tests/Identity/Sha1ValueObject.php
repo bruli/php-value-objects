@@ -1,7 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Identity;
 
-class Sha1ValueObject extends \PhpValueObjects\Identity\Sha1ValueObject
+final class Sha1ValueObject extends \PhpValueObjects\Identity\Sha1ValueObject
 {
 }

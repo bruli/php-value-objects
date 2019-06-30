@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Geography;
 
 use PhpValueObjects\Geography\Locale;
 
-class LocaleValueObject extends Locale
+final class LocaleValueObject extends Locale
 {
 }

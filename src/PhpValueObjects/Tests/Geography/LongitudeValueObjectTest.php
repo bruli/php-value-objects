@@ -1,18 +1,18 @@
 <?php
 
+declare(strict_types=1);
 
 namespace PhpValueObjects\Tests\Geography;
-
 
 use PhpValueObjects\Geography\Exception\InvalidLongitudeException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class LongitudeValueObjectTest extends BaseUnitTestCase
+final class LongitudeValueObjectTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldReturnLongitude()
+    public function itShouldReturnLongitude(): void
     {
         $longitude = $this->faker()->longitude;
 
@@ -21,13 +21,9 @@ class LongitudeValueObjectTest extends BaseUnitTestCase
         $this->assertSame($longitude, $longVO->value());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidLongitudeProvider()
+    public function invalidLongitudeProvider(): array
     {
         return [
-            [null],
             [$this->faker()->name],
             [$this->faker()->randomFloat(4, -200, -185)],
             [$this->faker()->randomFloat(4, 185, 200)]
@@ -39,7 +35,7 @@ class LongitudeValueObjectTest extends BaseUnitTestCase
      *
      * @dataProvider invalidLongitudeProvider
      */
-    public function itShouldThrowsException($data)
+    public function itShouldThrowsException($data): void
     {
         $this->expectException(InvalidLongitudeException::class);
 

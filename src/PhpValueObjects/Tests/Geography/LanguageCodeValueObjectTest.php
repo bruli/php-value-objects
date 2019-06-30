@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Geography;
 
 use PhpValueObjects\Geography\Exception\InvalidLanguageCodeException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class LanguageCodeValueObjectTest extends BaseUnitTestCase
+final class LanguageCodeValueObjectTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldReturnLanguageCode()
+    public function itShouldReturnLanguageCode(): void
     {
         $language = $this->faker()->languageCode;
 
@@ -20,22 +22,19 @@ class LanguageCodeValueObjectTest extends BaseUnitTestCase
         $this->assertSame($language, $langVO->__toString());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidLanguageCodeProvider()
+    public function invalidLanguageCodeProvider(): array
     {
         return [
-            [null],
             [$this->faker()->address],
             [$this->faker()->numberBetween()],
         ];
     }
+
     /**
      * @test
      * @dataProvider invalidLanguageCodeProvider
      */
-    public function isShouldThrowsException($data)
+    public function isShouldThrowsException(string $data): void
     {
         $this->expectException(InvalidLanguageCodeException::class);
 

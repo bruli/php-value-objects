@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Spatial;
 
 use PhpValueObjects\AbstractValueObject;
@@ -7,11 +9,7 @@ use PhpValueObjects\Spatial\Exception\InvalidPolygonException;
 
 class PolygonValueObject extends AbstractValueObject
 {
-    /**
-     * @param array $value
-     * @throws InvalidPolygonException
-     */
-    protected function guard($value)
+    protected function guard($value): void
     {
         if (false === is_array($value)) {
             throw new InvalidPolygonException();

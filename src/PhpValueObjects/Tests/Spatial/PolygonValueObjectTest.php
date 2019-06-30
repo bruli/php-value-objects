@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Spatial;
 
 use PhpValueObjects\Spatial\Exception\InvalidPolygonException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class PolygonValueObjectTest extends BaseUnitTestCase
+final class PolygonValueObjectTest extends BaseUnitTestCase
 {
 
-    public function invalidDataProvider()
+    public function invalidDataProvider(): array
     {
         $latitude = $this->faker()->latitude;
         $longitude = $this->faker()->longitude;
@@ -46,11 +48,10 @@ class PolygonValueObjectTest extends BaseUnitTestCase
     }
 
     /**
-     * @param $values
      * @test
      * @dataProvider invalidDataProvider
      */
-    public function itShouldThrowInvalidPolygonException($values)
+    public function itShouldThrowInvalidPolygonException($values): void
     {
         $this->expectException(InvalidPolygonException::class);
 
@@ -60,7 +61,7 @@ class PolygonValueObjectTest extends BaseUnitTestCase
     /**
      * @test
      */
-    public function itShouldWorksFine()
+    public function itShouldWorksFine(): void
     {
         $latitude = $this->faker()->latitude;
         $longitude = $this->faker()->longitude;

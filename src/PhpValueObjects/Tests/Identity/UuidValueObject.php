@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Identity;
 
 use PhpValueObjects\Identity\Uuid;
 
-class UuidValueObject extends Uuid
+final class UuidValueObject extends Uuid
 {
 }

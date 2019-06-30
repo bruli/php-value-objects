@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Network;
 
 use PhpValueObjects\Network\Exception\InvalidTcpPortException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class TcpPortValueObjectTest extends BaseUnitTestCase
+final class TcpPortValueObjectTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldReturnTcpPort()
+    public function itShouldReturnTcpPort(): void
     {
         $portNumber = $this->faker()->numberBetween(0, 65535);
 
@@ -19,13 +21,9 @@ class TcpPortValueObjectTest extends BaseUnitTestCase
         $this->assertSame($portNumber, $tcpPort->value());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidTcpPortProvider()
+    public function invalidTcpPortProvider(): array
     {
         return [
-            [null],
             [11362.0],
             [$this->faker()->randomFloat()],
             [$this->faker()->numberBetween(65536)],
@@ -37,7 +35,7 @@ class TcpPortValueObjectTest extends BaseUnitTestCase
      * @test
      * @dataProvider invalidTcpPortProvider
      */
-    public function itShouldThrowsException($data)
+    public function itShouldThrowsException($data): void
     {
         $this->expectException(InvalidTcpPortException::class);
 

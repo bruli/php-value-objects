@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Tests\Identity;
 
 use PhpValueObjects\Identity\Exception\InvalidSha1Exception;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 
-class Sha1ValueObjectTest extends BaseUnitTestCase
+final class Sha1ValueObjectTest extends BaseUnitTestCase
 {
     /**
      * @test
      */
-    public function itShouldReturnSha1()
+    public function itShouldReturnSha1(): void
     {
         $sha1 = $this->faker()->sha1;
 
@@ -20,13 +22,9 @@ class Sha1ValueObjectTest extends BaseUnitTestCase
         $this->assertSame($sha1, $sha1VO->__toString());
     }
 
-    /**
-     * @return array
-     */
-    public function invalidSha1Provider()
+    public function invalidSha1Provider(): array
     {
         return [
-            [null],
             [$this->faker()->md5],
             [$this->faker()->sha256],
             [$this->faker()->text],
@@ -38,7 +36,7 @@ class Sha1ValueObjectTest extends BaseUnitTestCase
      *
      * @dataProvider invalidSha1Provider
      */
-    public function itShouldThrowsException($data)
+    public function itShouldThrowsException(string $data): void
     {
         $this->expectException(InvalidSha1Exception::class);
 

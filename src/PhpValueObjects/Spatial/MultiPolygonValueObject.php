@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhpValueObjects\Spatial;
 
 use PhpValueObjects\AbstractValueObject;
@@ -9,16 +11,12 @@ class MultiPolygonValueObject extends AbstractValueObject
 {
     public function __construct($value)
     {
-        if (false === $this->guardNullable($value)) {
+        if (null !== $value) {
             $this->guard($value);
         }
     }
 
-    /**
-     * @param mixed $value
-     * @throws InvalidMultiPolygonException
-     */
-    protected function guard($value)
+    protected function guard($value): void
     {
         if (false === is_array($value)) {
             throw new InvalidMultiPolygonException();
@@ -37,7 +35,7 @@ class MultiPolygonValueObject extends AbstractValueObject
      * @param PolygonValueObject[] $values
      * @return array
      */
-    private function getScalarValues(array $values)
+    private function getScalarValues(array $values): array
     {
         $scalar = [];
 
