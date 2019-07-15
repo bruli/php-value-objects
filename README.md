@@ -25,4 +25,4 @@ $ composer require bruli/php-value-objects
 
 ## License
 
-php-git-hooks is released under the [MIT License](https://opensource.org/licenses/MIT). See the bundled LICENSE file for details.
+php-value-objects is released under the [MIT License](https://opensource.org/licenses/MIT). See the bundled LICENSE file for details.
