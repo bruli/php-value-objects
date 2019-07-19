@@ -20,6 +20,11 @@ abstract class ObjectCollection
         $this->objects = $objects;
     }
 
+    public static function init(): self
+    {
+        return new static([]);
+    }
+
     abstract protected function setClassName(): string;
 
     public function getCollection(): array
