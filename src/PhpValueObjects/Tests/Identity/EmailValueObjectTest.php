@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpValueObjects\Tests\Identity;
 
-
 use PhpValueObjects\Identity\Exception\InvalidEmailException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 

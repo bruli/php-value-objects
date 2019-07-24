@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace PhpValueObjects\Tests\Collection;
 
-
 use PhpValueObjects\Collection\Exception\InvalidCollectionObjectException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 use stdClass;
@@ -86,7 +85,6 @@ final class CollectionTest extends BaseUnitTestCase
      */
     public function itShouldReturnKey(): void
     {
-
         $key = $this->collection->key();
         $this->assertSame(0, $key);
     }

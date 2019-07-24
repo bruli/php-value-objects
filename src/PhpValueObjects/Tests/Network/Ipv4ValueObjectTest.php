@@ -14,7 +14,6 @@ final class Ipv4ValueObjectTest extends BaseUnitTestCase
      */
     public function itShouldReturnIpv4Address(): void
     {
-
         $ipAddress = $this->faker()->ipv4;
 
         $ipv4 = new Ipv4ValueObject($ipAddress);
