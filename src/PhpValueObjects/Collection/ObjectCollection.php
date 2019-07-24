@@ -126,5 +126,4 @@ abstract class ObjectCollection
     {
         $this->objects = [];
     }
-
 }

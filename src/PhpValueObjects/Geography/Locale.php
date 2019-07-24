@@ -18,6 +18,5 @@ abstract class Locale extends AbstractStringValueObject
         } catch (MissingResourceException $exception) {
             throw new InvalidLocaleException($value);
         }
-
     }
 }

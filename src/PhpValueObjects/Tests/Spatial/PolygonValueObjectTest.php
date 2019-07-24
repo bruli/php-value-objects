@@ -9,7 +9,6 @@ use PhpValueObjects\Tests\BaseUnitTestCase;
 
 final class PolygonValueObjectTest extends BaseUnitTestCase
 {
-
     public function invalidDataProvider(): array
     {
         $latitude = $this->faker()->latitude;

@@ -18,6 +18,5 @@ abstract class Currency extends AbstractStringValueObject
         } catch (MissingResourceException $exception) {
             throw new InvalidCurrencyException($value);
         }
-
     }
 }

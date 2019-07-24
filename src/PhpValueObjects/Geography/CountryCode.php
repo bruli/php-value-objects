@@ -22,10 +22,8 @@ abstract class CountryCode extends AbstractStringValueObject
     {
         try {
             Countries::getName($value);
-
         } catch (MissingResourceException $e) {
             throw new InvalidCountryCodeException($value);
-
         }
     }
 }

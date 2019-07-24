@@ -5,7 +5,6 @@ declare(strict_types=1);
 
 namespace PhpValueObjects\Tests\Geography;
 
-
 use PhpValueObjects\Geography\Exception\InvalidCountryCodeException;
 use PhpValueObjects\Tests\BaseUnitTestCase;
 

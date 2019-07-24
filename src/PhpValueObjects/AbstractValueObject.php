@@ -4,7 +4,6 @@ namespace PhpValueObjects;
 
 abstract class AbstractValueObject
 {
-
     protected $value;
 
     public function __construct($value)
