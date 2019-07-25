@@ -6,17 +6,21 @@ namespace PhpValueObjects\Identity;
 
 use Assert\Assertion;
 use Exception;
-use PhpValueObjects\AbstractStringValueObject;
-use PhpValueObjects\Identity\Exception\InvalidUuidException;
+use PhpValueObjects\AbstractValueObject;
 
-abstract class Uuid extends AbstractStringValueObject
+abstract class Uuid extends AbstractValueObject
 {
+    public function __construct(string $value)
+    {
+        parent::__construct($value);
+    }
+
     protected function guard($value): void
     {
         try {
             Assertion::uuid($value);
         } catch (Exception $e) {
-            throw new InvalidUuidException($value);
+            $this->throwException($value);
         }
     }
 }

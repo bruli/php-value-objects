@@ -203,4 +203,32 @@ final class CollectionTest extends BaseUnitTestCase
         $this->collection->clear();
         $this->assertTrue($this->collection->isEmpty());
     }
+
+    /**
+     * @test
+     */
+    public function itShouldApplyReverseObjects(): void
+    {
+        $this->collection->add(new ObjectForTest(1));
+        $this->collection->add(new ObjectForTest(2));
+        $this->collection->add(new ObjectForTest(3));
+
+        $this->collection->applyReverse();
+        $this->assertSame(1, $this->collection->last()->getId());
+    }
+
+    /**
+     * @test
+     */
+    public function itShouldReverseObjects(): void
+    {
+        $this->collection->add(new ObjectForTest(1));
+        $this->collection->add(new ObjectForTest(2));
+        $this->collection->add(new ObjectForTest(3));
+
+        $data = $this->collection->reverse();
+        $this->assertSame(1, end($data)->getId());
+    }
+
+
 }

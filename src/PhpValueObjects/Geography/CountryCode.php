@@ -4,17 +4,14 @@ declare(strict_types=1);
 
 namespace PhpValueObjects\Geography;
 
-use PhpValueObjects\AbstractStringValueObject;
-use PhpValueObjects\Geography\Exception\InvalidCountryCodeException;
+use PhpValueObjects\AbstractValueObject;
 use Symfony\Component\Intl\Countries;
 use Symfony\Component\Intl\Exception\MissingResourceException;
-use Symfony\Component\Intl\Intl;
 
-abstract class CountryCode extends AbstractStringValueObject
+abstract class CountryCode extends AbstractValueObject
 {
     public function __construct(string $value)
     {
-        $this->guard($value);
         parent::__construct($value);
     }
 
@@ -23,7 +20,7 @@ abstract class CountryCode extends AbstractStringValueObject
         try {
             Countries::getName($value);
         } catch (MissingResourceException $e) {
-            throw new InvalidCountryCodeException($value);
+            $this->throwException($value);
         }
     }
 }

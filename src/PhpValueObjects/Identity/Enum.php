@@ -5,16 +5,13 @@ namespace PhpValueObjects\Identity;
 
 use PhpValueObjects\AbstractValueObject;
 
-abstract class Email extends AbstractValueObject
+abstract class Enum extends AbstractValueObject
 {
-    public function __construct(string $value)
-    {
-        parent::__construct($value);
-    }
+    abstract protected function validValues(): array;
 
     protected function guard($value): void
     {
-        if (false === filter_var($value, FILTER_VALIDATE_EMAIL)) {
+        if (false === in_array($value, $this->validValues())) {
             $this->throwException($value);
         }
     }

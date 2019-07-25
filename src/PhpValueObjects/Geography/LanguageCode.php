@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace PhpValueObjects\Geography;
 
-use PhpValueObjects\AbstractStringValueObject;
-use PhpValueObjects\Geography\Exception\InvalidLanguageCodeException;
+use PhpValueObjects\AbstractValueObject;
 use Symfony\Component\Intl\Exception\MissingResourceException;
-use Symfony\Component\Intl\Intl;
 use Symfony\Component\Intl\Languages;
 
-abstract class LanguageCode extends AbstractStringValueObject
+abstract class LanguageCode extends AbstractValueObject
 {
     public function __construct(string $value)
     {
@@ -22,7 +20,7 @@ abstract class LanguageCode extends AbstractStringValueObject
         try {
             Languages::getName($value);
         } catch (MissingResourceException $exception) {
-            throw new InvalidLanguageCodeException($value);
+            $this->throwException($value);
         }
     }
 }

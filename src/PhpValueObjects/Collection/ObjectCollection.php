@@ -126,4 +126,14 @@ abstract class ObjectCollection
     {
         $this->objects = [];
     }
+
+    public function applyReverse()
+    {
+        $this->objects = array_reverse($this->getCollection());
+    }
+
+    public function reverse(): array
+    {
+        return array_reverse($this->objects);
+    }
 }

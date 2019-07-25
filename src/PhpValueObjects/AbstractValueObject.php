@@ -8,14 +8,12 @@ abstract class AbstractValueObject
 
     public function __construct($value)
     {
-        if (null !== $value) {
-            $this->guard($value);
-        }
-
+        $this->guard($value);
         $this->value = $value;
     }
 
     abstract protected function guard($value): void;
+    abstract protected function throwException($value): void;
 
     public function value()
     {
